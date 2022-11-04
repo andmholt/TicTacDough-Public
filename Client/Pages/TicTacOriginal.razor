@@ -1,0 +1,132 @@
+@page "/TicTac"
+
+<MudContainer>
+    <div style="display: flex; flex-direction: column; align-items: center; margin-top: 3vh">
+        <Timer currTime=@game.getCurrTime() displayTime=@this.gameInProgress />
+        <div style="height: 2vh"></div>
+        <div style="display: flex; align-items: center">
+
+            @* AI Score Card *@
+            <ScoreCard currScore=@game.getScores()[1] bakedGoods=@game.getBakedGoods()[1] icon="img/pretzel-1.png" winner=@(winner==1) />
+            
+            @if (this.gameInProgress) {
+                @* Game Board *@
+                <MudPaper
+                    Style="@($"background:{theme.Palette.Primary}; margin-right:{"4vw"}; margin-left:{"4vw"};")"
+                    Height="50vh" Width="50vh"
+                    Class="d-flex pa-2 justify-center align-center">
+                    <MudGrid Spacing=1 Justify="Justify.SpaceEvenly" style="display: flex; height: 100%; width: 100%;">
+                        @foreach (TicTacSquare square in game.getListRef()) {
+                            <MudItem Class="d-flex justify-center align-center">
+                                <MudPaper Height="12.5vh" Width="12.5vh" @onclick="@(e => userFlip(square.getIndex()))"
+                                    Class="d-flex align-center justify-center">
+                                    <img src="@(getDoughImg(square.getValue(), square.getBurntLevel()))" style="width: 11vh" />
+                                </MudPaper>
+                            </MudItem>
+                        }
+                    </MudGrid>
+                </MudPaper>
+            } else {
+                <MudPaper
+                    Style="@($"background:{theme.Palette.Primary}; margin-right:{"4vw"}; margin-left:{"4vw"}; cursor:{"pointer"};")"
+                    Height="50vh" Width="50vh"
+                    Class="d-flex pa-2 justify-center align-center">
+                    <MudButton FullWidth="true" Style="height: 100%" @onclick="@this.startGame">
+                        <MudText Typo="Typo.h3">
+                            BAKE
+                        </MudText>
+                    </MudButton>
+                </MudPaper>
+            }
+
+            @* User Score Card *@
+            <ScoreCard currScore=@game.getScores()[0] bakedGoods=@game.getBakedGoods()[0] icon="img/croissant-1.png" winner=@(winner==0) />
+        </div>
+    </div>
+</MudContainer>
+
+@code {
+    // game status
+    private bool gameInProgress = false;
+    private int temperature = 400;
+    private int? winner;
+
+    // init game
+    private TicTacGame game = new TicTacGame(3, 400);
+
+    // get theme
+    private MudTheme theme = Theme.getTheme();
+
+    // when page is inititalized
+    protected override void OnInitialized() {
+
+        // set state change callback
+        GameState.assignRefreshCB(StateHasChanged);
+
+        // set game over callback
+        GameState.assignGameOverCB(this.gameOver);
+
+        // set changeTempFunc
+        GameState.assignTempChange(this.changeTemp);
+    }
+
+    // changes temperature
+    public void changeTemp(int newTemp) {
+        this.temperature = newTemp;
+        Console.WriteLine(newTemp);
+    }
+
+    // starts the game
+    private void startGame() {
+        this.game = new TicTacGame(3, this.temperature);
+        this.gameInProgress = true;
+    }
+
+    // called by game when game is finished
+    public void gameOver() {
+        this.gameInProgress = false;
+    }
+
+    private String getDoughImg(int imgCode, int burntLevel) {
+        switch (imgCode) {
+            case 0:
+                return "";
+            case 1:
+                return "img/croissant-" + burntLevel + ".png";
+            case 2:
+                return "img/pretzel-" + burntLevel + ".png";
+            default:
+                return "";
+        }
+    }
+
+    private void userFlip(int squareIndex) {
+        // flip square specified by user
+        game.flipX(squareIndex);
+
+        // if no more squares to flip, return
+        if (game.getNumUnflipped() == 0)
+            return;
+        
+        // use minimax to find next best move for o
+        int nextAdversarySquare = TicTacMinimax.getNextMoveO(game);
+        //Console.WriteLine(nextAdversarySquare);
+
+        // flip o
+        game.flipO(nextAdversarySquare);
+
+        // test
+        /*TicTacState testState = new TicTacState("x", "o", "",
+                                                "x", "", "",
+                                                "", "", "");
+        Console.WriteLine("next move: " + TicTacMinimax.getNextMoveO(testState));
+        //Console.WriteLine("value=" + testState.getValue());*/
+
+        // test
+        /*TicTacState testState = new TicTacState("o", "x", "o", "",
+                                                  "o", "x", "", "x",
+                                                  "", "x", "", "o",
+                                                  "", "", "", "");
+        Console.WriteLine("next move: " + TicTacMinimax.getNextMoveO(testState));*/
+    }
+}

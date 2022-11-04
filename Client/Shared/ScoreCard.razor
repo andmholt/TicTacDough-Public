@@ -1,0 +1,41 @@
+<div>
+    @if (this.winner) {
+        <MudPaper Height="5vh" Width=30vh
+            Style="@($"background:{"white"}; border:{"3px solid orange"};")">
+            <MudText Typo="Typo.h3">WINNER</MudText>
+        </MudPaper>
+    }
+    
+    <div style="display: flex; justify-content: center; margin-bottom: 1vh;">
+        <MudPaper Height="5vh" Width=8vh
+            Style="@($"background:{"white"}; border:{"3px solid orange"};")">
+            <div style="height: 100%; display: flex; justify-content: center; align-items: center">
+                <img src=@this.icon style="width: 2vw; margin-left: 0.5vw; margin-right: 0.5vw;" />
+                <MudText Align="Align.Center" Color="Color.Primary" style="font-size: 2vw; margin-right: 0.5vw;">
+                    @this.currScore
+                </MudText>
+            </div>
+        </MudPaper>
+    </div>
+    <MudPaper Height="30vh" Width="30vh"
+        Style="@($"background:{"#A0A0A0"}; border:{"5px solid #707070"};")">
+        <div>
+            @if (this.bakedGoods != null) {
+            foreach (string bakedGood in this.bakedGoods) {
+                <img src=@bakedGood style="width: 3vw; margin: 0.25vw"/>
+            }
+        }
+        </div>
+    </MudPaper>
+</div>
+
+@code {
+    [Parameter]
+    public int currScore { get; set; }
+    [Parameter]
+    public IReadOnlyList<string>? bakedGoods { get; set; }
+    [Parameter]
+    public string? icon { get; set; }
+    [Parameter]
+    public bool winner { get; set; }
+}

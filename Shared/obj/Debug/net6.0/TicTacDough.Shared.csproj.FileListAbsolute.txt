@@ -1,0 +1,12 @@
+/Users/andrewholt/dev/TicTacDough/Shared/bin/Debug/net6.0/TicTacDough.Shared.deps.json
+/Users/andrewholt/dev/TicTacDough/Shared/bin/Debug/net6.0/TicTacDough.Shared.dll
+/Users/andrewholt/dev/TicTacDough/Shared/bin/Debug/net6.0/TicTacDough.Shared.pdb
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.csproj.AssemblyReference.cache
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.GeneratedMSBuildEditorConfig.editorconfig
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.AssemblyInfoInputs.cache
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.AssemblyInfo.cs
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.csproj.CoreCompileInputs.cache
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.dll
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/refint/TicTacDough.Shared.dll
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/TicTacDough.Shared.pdb
+/Users/andrewholt/dev/TicTacDough/Shared/obj/Debug/net6.0/ref/TicTacDough.Shared.dll

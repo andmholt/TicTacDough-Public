@@ -1,0 +1,64 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.0.0
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacDough.Server", "Server\TicTacDough.Server.csproj", "{D77623E6-D3F6-4C4D-9456-714868F39627}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacDough.Client", "Client\TicTacDough.Client.csproj", "{163F8C55-01AD-4599-9460-5E0B32BE2381}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TicTacDough.Shared", "Shared\TicTacDough.Shared.csproj", "{A19E5438-827D-4BC8-8C3D-CC74F2F54168}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|x64.Build.0 = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Debug|x86.Build.0 = Debug|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|x64.ActiveCfg = Release|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|x64.Build.0 = Release|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|x86.ActiveCfg = Release|Any CPU
+		{163F8C55-01AD-4599-9460-5E0B32BE2381}.Release|x86.Build.0 = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|x64.Build.0 = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Debug|x86.Build.0 = Debug|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|x64.ActiveCfg = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|x64.Build.0 = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|x86.ActiveCfg = Release|Any CPU
+		{D77623E6-D3F6-4C4D-9456-714868F39627}.Release|x86.Build.0 = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|x64.Build.0 = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Debug|x86.Build.0 = Debug|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|x64.ActiveCfg = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|x64.Build.0 = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|x86.ActiveCfg = Release|Any CPU
+		{A19E5438-827D-4BC8-8C3D-CC74F2F54168}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7D4D5412-8B58-4977-8554-E79BC299BC51}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,39 @@
+@page "/leaderboard"
+@inject HttpClient Http
+
+<PageTitle>Leaderboard</PageTitle>
+
+<MudContainer>
+    <div style="display: flex; justify-content: center; margin-top: 50px;">
+        <MudPaper
+        Width="60vw">
+            <div style="display: flex; justify-content: center;">
+                <div style="display: block">
+                    <MudText Typo="Typo.h1">Leaderboard</MudText>
+                    <MudDivider />
+                    <div style="height: 3vh"></div>
+                    @for (int i=0; i<scores?.Count; ++i) {
+                        int index = i;
+                        <div style="height: 1vh"></div>
+                        <div style="display: flex">
+                            <MudText>@(index+1).</MudText>
+                            <div style="display: flex; justify-content: center; width: 100%">
+                                <MudText>@this.scores[index].username</MudText>
+                            </div>
+                            <MudText>@this.scores[index].score</MudText>
+                        </div>
+                        <div style="height: 1vh"></div>
+                    }
+                </div>
+            </div>
+        </MudPaper>
+    </div>
+</MudContainer>
+
+@code {
+    private List<TicTacDough.Shared.Domain.Score>? scores;
+    
+    protected override async Task OnInitializedAsync() {
+        scores = await Http.GetFromJsonAsync<List<TicTacDough.Shared.Domain.Score>>("/api/Scores");
+    }
+}

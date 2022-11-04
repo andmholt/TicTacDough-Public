@@ -1,0 +1,43 @@
+﻿@inherits LayoutComponentBase
+
+@inject NavigationManager NavigationManager
+
+<MudThemeProvider Theme="theme"/>
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Color="Color.Primary">
+        <MudButton @onclick="goToTicTacOriginal">
+            Play Original
+        </MudButton>
+        @*<MudButton @onclick="goToTicTac4x4">
+            Play 4x4
+        </MudButton>*@
+        <div style="width: 100%"></div>
+        <MudButton @onclick="goToLeaderboard">
+            Leaderboard
+        </MudButton>
+    </MudAppBar>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private void goToTicTacOriginal() {
+        NavigationManager.NavigateTo("TicTac");
+    }
+    private void goToTicTac4x4() {
+        NavigationManager.NavigateTo("TicTac4x4");
+    }
+    private void goToLeaderboard() {
+        NavigationManager.NavigateTo("Leaderboard");
+    }
+
+    protected override void OnInitialized() {
+        NavigationManager.NavigateTo("TicTac");
+    }
+
+    private MudTheme theme = Theme.getTheme();
+}

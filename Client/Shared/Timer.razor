@@ -1,0 +1,100 @@
+<div style="display: flex;">
+    <div style="width: 5vw; margin-right: 0.5vw"></div>
+    <MudPaper Height="10vh" Width="15vw" 
+        Style="@($"background:{"black"}; border:{"5px solid orange"};")">
+        <div style="height: 100%; display: flex; justify-content: center; align-items: center">
+            <MudText Align="Align.Center" Color="Color.Primary" style="font-size: 5vw">
+                @this.formatTime(this.currTime)
+            </MudText>
+        </div>
+    </MudPaper>
+    @*@if (!this.displayTime) {
+        <div style="display: flex; flex-direction: column; height: 10vh; width: 5vw; margin-left: 0.5vw; border: border-radius: 5px; overflow: hidden;">
+            <MudButton Style="height: 100%" @onclick="@this.increaseTemp">
+                ▲
+            </MudButton>
+            <MudButton Style="height: 100%" @onclick="@this.decreaseTemp">
+                ▼
+            </MudButton>
+        </div>
+    } else {
+        <div style="width: 5vw; margin-right: 0.5vw"></div>
+    }*@
+    <div style="width: 5vw; margin-right: 0.5vw"></div>
+</div>
+
+@code {
+    [Parameter]
+    public int currTime { get; set; }
+    [Parameter]
+    public bool displayTime { get; set; }
+    private int temperature = 400;
+
+    // increase temperature
+    private void increaseTemp() {
+        switch (this.temperature) {
+            case 450:
+                break;
+            case 400:
+                this.temperature = 450;
+                break;
+            case 350:
+                this.temperature = 400;
+                break;
+            case 300:
+                this.temperature = 350;
+                break;
+            case 250:
+                this.temperature = 300;
+                break;
+        }
+
+        //GameState.changeTemp(this.temperature);
+    }
+
+    // increase temperature
+    private void decreaseTemp() {
+        switch (this.temperature) {
+            case 450:
+                this.temperature = 400;
+                break;
+            case 400:
+                this.temperature = 350;
+                break;
+            case 350:
+                this.temperature = 300;
+                break;
+            case 300:
+                this.temperature = 250;
+                break;
+            case 250:
+                break;
+        }
+
+        //GameState.changeTemp(this.temperature);
+    }
+
+    // formats time
+    private String formatTime(int timeInt) {
+
+        // if game not in progress, return -:--
+        if (!this.displayTime) {
+            return this.temperature + "°";
+        }
+
+        // if less than 1 minute
+        if (timeInt < 60) {
+
+            // if less than 10 seconds
+            if (timeInt < 10) {
+                return "0:0" + timeInt.ToString();
+            } else {
+                return "0:" + timeInt.ToString();
+            }
+        }
+        // else account for minutes
+        else {
+            return (timeInt/60).ToString() + ':' + (timeInt%60).ToString();
+        }
+    }
+}
